@@ -19,7 +19,7 @@ if (!is_dir($dir2)) {
 
 $filename = "README.txt";
 
-if(!file_exists($dir1 . DIRECTORY_SEPARATOR . $filename)){
+if(!file_exists($dir1 . DIRECTORY_SEPARATOR . $filename) && !file_exists($dir2 . DIRECTORY_SEPARATOR . $filename)){
 
 	$file = fopen($dir1 . DIRECTORY_SEPARATOR . $filename, "w+");
 
@@ -27,11 +27,24 @@ if(!file_exists($dir1 . DIRECTORY_SEPARATOR . $filename)){
 
 	fclose($file);
 
+	echo "Arquivo criado com sucesso";
+
+}else{
+
+	if(file_exists($dir1 . DIRECTORY_SEPARATOR . $filename)){
+
+		rename($dir1 . DIRECTORY_SEPARATOR . $filename, $dir2 . DIRECTORY_SEPARATOR . $filename);
+
+		echo "Arquivo movido com sucesso para pasta " . $dir2;
+
+	}else{
+
+		rename($dir2 . DIRECTORY_SEPARATOR . $filename, $dir1 . DIRECTORY_SEPARATOR . $filename);
+
+		echo "Arquivo movido com sucesso para pasta " . $dir1;
+
+	}
+
 }
-
-rename($dir1 . DIRECTORY_SEPARATOR . $filename, $dir2 . DIRECTORY_SEPARATOR . $filename);
-
-
-echo "arquivo movido com sucesso";
 
  ?>
