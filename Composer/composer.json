@@ -1,0 +1,15 @@
+{
+    "name": "rodrigo/composer",
+    "description": "rodrigo treinamento composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "RodrigoCorreia",
+            "email": "rodrigocorrei@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    	"monolog/monolog": "1.0.*"
+    }
+}
